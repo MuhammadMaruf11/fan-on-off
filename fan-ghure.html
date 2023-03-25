@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <style>
+      .fan-one {
+        /* animation:  3s ease-in 1s 2 reverse both paused rotation; */
+        animation: rotaion 0.6s ease infinite;
+      }
+      .fan-two {
+        animation: rotaion 0.4s ease infinite;
+      }
+      .fan-three {
+        animation: rotaion 0.2s ease infinite;
+      }
+
+      @keyframes rotaion {
+        0% {
+          transform: rotate(0deg);
+        }
+        10% {
+          transform: rotate(36deg);
+        }
+        20% {
+          transform: rotate(72deg);
+        }
+        30% {
+          transform: rotate(108deg);
+        }
+        40% {
+          transform: rotate(144deg);
+        }
+        50% {
+          transform: rotate(180deg);
+        }
+        60% {
+          transform: rotate(216deg);
+        }
+        70% {
+          transform: rotate(252deg);
+        }
+        80% {
+          transform: rotate(288deg);
+        }
+        90% {
+          transform: rotate(324deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-lg-12 m-auto text-center">
+          <div class="card" style="border: 0">
+            <div>
+              <img
+                class="card-img-top p-3" style="width:600px;"
+                id="fanCss"
+                src="https://hardwareshack.in/wp-content/uploads/2021/03/61PFA2y80L._SL1500_.jpg"
+                alt="Card image cap"
+              />
+            </div>
+            <div class="card-body mt-5 pt-5">
+              <a href="#" class="btn btn-primary mt-5" id="fanOff">OFF </a>
+              <a href="#" class="btn btn-primary mt-5" id="fanOne">1 </a>
+              <a href="#" class="btn btn-primary mt-5" id="fanTwo">2 </a>
+              <a href="#" class="btn btn-primary mt-5" id="fanThress">3 </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const fanOff = document.getElementById("fanOff");
+      const fanOne = document.getElementById("fanOne");
+      const fanTwo = document.getElementById("fanTwo");
+      const fanThress = document.getElementById("fanThress");
+
+      fanOff.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.getElementById("fanCss").classList.remove("fan-one");
+        document.getElementById("fanCss").classList.remove("fan-two");
+        document.getElementById("fanCss").classList.remove("fan-three");
+
+        document.getElementById("fanCss").classList.add("fan-one");
+
+        setTimeout(() => {
+          document.getElementById("fanCss").classList.remove("fan-one");
+        }, 300);
+      });
+      fanOne.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.getElementById("fanCss").classList.add("fan-one");
+        document.getElementById("fanCss").classList.remove("fan-two");
+        document.getElementById("fanCss").classList.remove("fan-three");
+      });
+      fanTwo.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.getElementById("fanCss").classList.remove("fan-one");
+        document.getElementById("fanCss").classList.add("fan-two");
+        document.getElementById("fanCss").classList.remove("fan-three");
+      });
+      fanThress.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.getElementById("fanCss").classList.remove("fan-one");
+
+        document.getElementById("fanCss").classList.add("fan-two");
+
+        setTimeout(() => {
+          document.getElementById("fanCss").classList.remove("fan-two");
+          document.getElementById("fanCss").classList.add("fan-three");
+        }, 300);
+      });
+    </script>
+  </body>
+</html>
